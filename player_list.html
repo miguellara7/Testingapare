@@ -1,0 +1,196 @@
+<html>
+
+<head>
+    <title>Player List</title>
+</head>
+
+<body>
+    <style>
+        /* style.css */
+        .player {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .player-description {
+            flex-grow: 1;
+            margin-right: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .player-edit {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .player-copy {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        // JavaScript code goes here
+        function editDescription(playerName, currentDescription, currentEditedBy) {
+            // Prompt the user to enter a new description
+            const newDescription = prompt(`Edit Description for ${playerName}:`, currentDescription);
+
+            if (newDescription !== null) {
+                // Get the current date and time
+                const now = new Date();
+                const formattedDate = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
+
+                // Update the description and edited by
+                currentDescription = newDescription;
+                currentEditedBy = `Edited by: You, ${formattedDate}`;
+
+                // Update the HTML elements
+                const descriptionTextArea = document.querySelector(`#description-${playerName}`);
+                const editedByLabel = document.querySelector(`#edited-by-${playerName}`);
+
+                descriptionTextArea.value = currentDescription;
+                editedByLabel.textContent = currentEditedBy;
+            }
+        }
+
+        function copyToClipboard(playerName) {
+            const descriptionTextArea = document.querySelector(`#description-${playerName}`);
+            descriptionTextArea.select();
+            document.execCommand("copy");
+            alert(`Description for ${playerName} copied to clipboard: ${descriptionTextArea.value}`);
+        }
+    </script>
+    <h1>Online Enemy List:</h1>
+    <ul>
+        <li class="player"><span>Evil Tony</span><textarea id="description-Evil Tony" class="player-description"
+                readonly></textarea>
+            <p id="edited-by-Evil Tony" class="edited-by"></p><button class="player-edit"
+                onclick="editDescription('Evil Tony', '', '')">Edit</button><button class="player-copy"
+                onclick="copyToClipboard('Evil Tony')">Copy</button>
+        </li>
+        <li class="player"><span>Highflyerk</span><textarea id="description-Highflyerk" class="player-description"
+                readonly></textarea>
+            <p id="edited-by-Highflyerk" class="edited-by"></p><button class="player-edit"
+                onclick="editDescription('Highflyerk', '', '')">Edit</button><button class="player-copy"
+                onclick="copyToClipboard('Highflyerk')">Copy</button>
+        </li>
+        <li class="player"><span>Futelozky,</span><textarea id="description-Futelozky," class="player-description"
+                readonly></textarea>
+            <p id="edited-by-Futelozky," class="edited-by"></p><button class="player-edit"
+                onclick="editDescription('Futelozky,', '', '')">Edit</button><button class="player-copy"
+                onclick="copyToClipboard('Futelozky,')">Copy</button>
+        </li>
+        <li class="player"><span>Toris Arrogante</span><textarea id="description-Toris Arrogante"
+                class="player-description" readonly></textarea>
+            <p id="edited-by-Toris Arrogante" class="edited-by"></p><button class="player-edit"
+                onclick="editDescription('Toris Arrogante', '', '')">Edit</button><button class="player-copy"
+                onclick="copyToClipboard('Toris Arrogante')">Copy</button>
+        </li>
+        <li class="player"><span>Nightmare Ed Rula</span><textarea id="description-Nightmare Ed Rula"
+                class="player-description" readonly></textarea>
+            <p id="edited-by-Nightmare Ed Rula" class="edited-by"></p><button class="player-edit"
+                onclick="editDescription('Nightmare Ed Rula', '', '')">Edit</button><button class="player-copy"
+                onclick="copyToClipboard('Nightmare Ed Rula')">Copy</button>
+        </li>
+        <li class="player"><span>Pyll Bon.</span><textarea id="description-Pyll Bon." class="player-description"
+                readonly></textarea>
+            <p id="edited-by-Pyll Bon." class="edited-by"></p><button class="player-edit"
+                onclick="editDescription('Pyll Bon.', '', '')">Edit</button><button class="player-copy"
+                onclick="copyToClipboard('Pyll Bon.')">Copy</button>
+        </li>
+        <li class="player"><span>Tony Muletas</span><textarea id="description-Tony Muletas" class="player-description"
+                readonly></textarea>
+            <p id="edited-by-Tony Muletas" class="edited-by"></p><button class="player-edit"
+                onclick="editDescription('Tony Muletas', '', '')">Edit</button><button class="player-copy"
+                onclick="copyToClipboard('Tony Muletas')">Copy</button>
+        </li>
+        <li class="player"><span>Rockstar Kankann</span><textarea id="description-Rockstar Kankann"
+                class="player-description" readonly></textarea>
+            <p id="edited-by-Rockstar Kankann" class="edited-by"></p><button class="player-edit"
+                onclick="editDescription('Rockstar Kankann', '', '')">Edit</button><button class="player-copy"
+                onclick="copyToClipboard('Rockstar Kankann')">Copy</button>
+        </li>
+        <li class="player"><span>Tony Mexx</span><textarea id="description-Tony Mexx" class="player-description"
+                readonly></textarea>
+            <p id="edited-by-Tony Mexx" class="edited-by"></p><button class="player-edit"
+                onclick="editDescription('Tony Mexx', '', '')">Edit</button><button class="player-copy"
+                onclick="copyToClipboard('Tony Mexx')">Copy</button>
+        </li>
+        <li class="player"><span>Fute Bombinha</span><textarea id="description-Fute Bombinha" class="player-description"
+                readonly></textarea>
+            <p id="edited-by-Fute Bombinha" class="edited-by"></p><button class="player-edit"
+                onclick="editDescription('Fute Bombinha', '', '')">Edit</button><button class="player-copy"
+                onclick="copyToClipboard('Fute Bombinha')">Copy</button>
+        </li>
+        <li class="player"><span>Compa Tipo</span><textarea id="description-Compa Tipo" class="player-description"
+                readonly></textarea>
+            <p id="edited-by-Compa Tipo" class="edited-by"></p><button class="player-edit"
+                onclick="editDescription('Compa Tipo', '', '')">Edit</button><button class="player-copy"
+                onclick="copyToClipboard('Compa Tipo')">Copy</button>
+        </li>
+        <li class="player"><span>Fute Bombiinha</span><textarea id="description-Fute Bombiinha"
+                class="player-description" readonly></textarea>
+            <p id="edited-by-Fute Bombiinha" class="edited-by"></p><button class="player-edit"
+                onclick="editDescription('Fute Bombiinha', '', '')">Edit</button><button class="player-copy"
+                onclick="copyToClipboard('Fute Bombiinha')">Copy</button>
+        </li>
+        <li class="player"><span>Fute Bombinhaa</span><textarea id="description-Fute Bombinhaa"
+                class="player-description" readonly></textarea>
+            <p id="edited-by-Fute Bombinhaa" class="edited-by"></p><button class="player-edit"
+                onclick="editDescription('Fute Bombinhaa', '', '')">Edit</button><button class="player-copy"
+                onclick="copyToClipboard('Fute Bombinhaa')">Copy</button>
+        </li>
+        <li class="player"><span>Othetagod De Ed</span><textarea id="description-Othetagod De Ed"
+                class="player-description" readonly></textarea>
+            <p id="edited-by-Othetagod De Ed" class="edited-by"></p><button class="player-edit"
+                onclick="editDescription('Othetagod De Ed', '', '')">Edit</button><button class="player-copy"
+                onclick="copyToClipboard('Othetagod De Ed')">Copy</button>
+        </li>
+        <li class="player"><span>Fute Bombiinhaa</span><textarea id="description-Fute Bombiinhaa"
+                class="player-description" readonly></textarea>
+            <p id="edited-by-Fute Bombiinhaa" class="edited-by"></p><button class="player-edit"
+                onclick="editDescription('Fute Bombiinhaa', '', '')">Edit</button><button class="player-copy"
+                onclick="copyToClipboard('Fute Bombiinhaa')">Copy</button>
+        </li>
+        <li class="player"><span>Settiing Isback</span><textarea id="description-Settiing Isback"
+                class="player-description" readonly></textarea>
+            <p id="edited-by-Settiing Isback" class="edited-by"></p><button class="player-edit"
+                onclick="editDescription('Settiing Isback', '', '')">Edit</button><button class="player-copy"
+                onclick="copyToClipboard('Settiing Isback')">Copy</button>
+        </li>
+        <li class="player"><span>Pikee La Strega</span><textarea id="description-Pikee La Strega"
+                class="player-description" readonly></textarea>
+            <p id="edited-by-Pikee La Strega" class="edited-by"></p><button class="player-edit"
+                onclick="editDescription('Pikee La Strega', '', '')">Edit</button><button class="player-copy"
+                onclick="copyToClipboard('Pikee La Strega')">Copy</button>
+        </li>
+        <li class="player"><span>Fute Boombinha</span><textarea id="description-Fute Boombinha"
+                class="player-description" readonly></textarea>
+            <p id="edited-by-Fute Boombinha" class="edited-by"></p><button class="player-edit"
+                onclick="editDescription('Fute Boombinha', '', '')">Edit</button><button class="player-copy"
+                onclick="copyToClipboard('Fute Boombinha')">Copy</button>
+        </li>
+        <li class="player"><span>Rockstar Aezome</span><textarea id="description-Rockstar Aezome"
+                class="player-description" readonly></textarea>
+            <p id="edited-by-Rockstar Aezome" class="edited-by"></p><button class="player-edit"
+                onclick="editDescription('Rockstar Aezome', '', '')">Edit</button><button class="player-copy"
+                onclick="copyToClipboard('Rockstar Aezome')">Copy</button>
+        </li>
+        <li class="player"><span>Kynteritto</span><textarea id="description-Kynteritto" class="player-description"
+                readonly></textarea>
+            <p id="edited-by-Kynteritto" class="edited-by"></p><button class="player-edit"
+                onclick="editDescription('Kynteritto', '', '')">Edit</button><button class="player-copy"
+                onclick="copyToClipboard('Kynteritto')">Copy</button>
+        </li>
+    </ul>
+</body>
+
+</html>
